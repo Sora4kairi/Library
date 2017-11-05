@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "draw.h"
 #include <iostream>
-class Polygon
+class Polygon //Polygon brukes for linjer her. Setter sammen til en trekant/firkant. 
 {
 	
 private:
@@ -30,7 +30,7 @@ public:
 		this->Pa = a;
 		this->Pb = b;
 	};
-	Polygon(Polygon a, draw c) {
+	Polygon(Polygon a, draw c) { //Linje og punkt, vil da sette inn verdien fra de den har og til slutt til punktet. 
 		this->Pa = a.Pa;
 		this->Pb = a.Pb;
 		this->Pc = a.Pc;
@@ -46,7 +46,7 @@ public:
 
 	Polygon(int x) { };//Bruker bare int som return-verdi så denne trenger ikke gjøre noe. 
 
-	friend Polygon operator+(Polygon l, draw p) { return Polygon(l, p); };
+	friend Polygon operator+(Polygon l, draw p) { return Polygon(l, p); }; //Overloader + for å fungere med både linje/punkt og linje/linje.
 	friend Polygon operator+(Polygon l, Polygon j) { return Polygon(l, j); };
 	friend Polygon operator==(Polygon l, draw p) { 
 		draw a = draw(l.Pa);
@@ -59,7 +59,7 @@ public:
 		else if(d.x == p.x || d.y == p.y || d.z == p.z) return 1;
 		else return 0;
 	};
-	friend Polygon operator-(Polygon l, draw p) { 
+	friend Polygon operator-(Polygon l, draw p) { //Sjekker om koordinatene er likt koordinatene til punktet man vil ta vekk. Er de det, vil den returnere et nytt polygon.
 		draw a = draw(l.Pa);
 		draw b = draw(l.Pb);
 		draw c = draw(l.Pc);

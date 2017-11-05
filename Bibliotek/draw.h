@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include <iostream>
-class draw
+class draw //Bruker draw som punkt-klasse. Oppretter punkter med koordinater her som senere blir gjort om til polygoner. 
 {
 	
 public:
@@ -12,14 +12,14 @@ public:
 		this->y = 0;
 		this->z = 0;
 	}
-	draw(int x, int y)
+	draw(int x, int y) //2 koordinater, siste blir automatisk satt til 0.
 	{
 		this->x = x;
 		this->y = y;
 		this->z = 0;
 	};
 
-	draw(int x)
+	draw(int x) //Samme som over, de koordinatene som ikke blir definert blir satt til 0. 
 	{
 		this->x = x;
 		this->y = 0;
